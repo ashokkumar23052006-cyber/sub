@@ -1,0 +1,17 @@
+program SumOfTwoNumbers;
+
+var
+  num1, num2, sum: integer;
+
+begin
+  writeln('Enter first number: ');
+  readln(num1);
+
+  writeln('Enter second number: ');
+  readln(num2);
+
+  sum := num1 + num2;
+
+  writeln('The sum is: ', sum);
+  readln;
+end.
