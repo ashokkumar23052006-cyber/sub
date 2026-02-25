@@ -1,0 +1,15 @@
+# Python program to create a text file and write content into it
+
+# Name of the file
+filename = "example.txt"
+
+# Content to write
+content = """Hello!
+This is a text file created by a Python program.
+You can add more lines as needed."""
+
+# Open the file in write mode and write content
+with open(filename, "w") as file:
+    file.write(content)
+
+print(f"File '{filename}' has been created successfully!") 
