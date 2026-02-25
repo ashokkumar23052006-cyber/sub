@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int[] marks;
+
+    // Constructor
+    Student(String name, int numSubjects) {
+        this.name = name;
+        marks = new int[numSubjects];
+    }
+
+    // Method to calculate average
+    double calculateAverage() {
+        int sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        return (double) sum / marks.length;
+    }
+
+    // Method to display student info
+    void displayInfo() {
+        System.out.println("Student: " + name);
+        System.out.println("Marks: ");
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+        System.out.println("\nAverage: " + calculateAverage());
+        System.out.println("----------------------");
+    }
+}
+
+public class StudentGrades {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int numStudents = sc.nextInt();
+
+        System.out.print("Enter number of subjects per student: ");
+        int numSubjects = sc.nextInt();
+
+        Student[] students = new Student[numStudents];
+
+        // Input student data
+        for (int i = 0; i < numStudents; i++) {
+            System.out.print("Enter name of student " + (i + 1) + ": ");
+            sc.nextLine(); // consume newline
+            String name = sc.nextLine();
+
+            students[i] = new Student(name, numSubjects);
+
+            System.out.println("Enter marks for " + name + ": ");
+            for (int j = 0; j < numSubjects; j++) {
+                students[i].marks[j] = sc.nextInt();
+            }
+        }
+
+        // Display student data
+        System.out.println("\n--- Student Report ---");
+        for (Student s : students) {
+            s.displayInfo();
+        }
+
+        sc.close();
+    }
+}
