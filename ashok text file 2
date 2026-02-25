@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    FILE *file;
+    char *filename = "example_c.txt";
+
+    // Open the file in write mode
+    file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    // Write content to the file
+    fprintf(file, "Hello!\n");
+    fprintf(file, "This is a text file created by a C program.\n");
+    fprintf(file, "You can add more lines as needed.\n");
+
+    // Close the file
+    fclose(file);
+
+    printf("File '%s' has been created successfully!\n", filename);
+    return 0;
+}
